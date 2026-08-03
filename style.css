@@ -7,8 +7,7 @@
     --color-dark:#2b2d42;
     --color-text:#5c6170;
     --color-text-light:#7a8091;
-
-
+    --color-bg-tint: #faf8ff;
     
     --fs-hero: clamp(2.2rem, 5vw, 3.5rem);
     --fs-h2: clamp(1.75rem, 3vw, 2.25rem);   
