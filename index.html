@@ -17,18 +17,28 @@
 </head>
 <body>
 
+<nav class="navbar">
+    <div class="logo">Saba<span class="name">.</span></div>
 
-    <nav class="navbar">
-        <div class="logo">Saba<span class="name">.</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links" id="navLinks">
+        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
 
+    <div class="nav-controls">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button id="menuToggle" class="menu-toggle" aria-label="Open Menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</nav>
+    
 
     <header class="hero" id="home">
         <div class="hero-text">
@@ -46,14 +56,14 @@
         </div>
     </header>
  
-    <section class="about" id="about">
+    <section class="about reveal" id="about">
         <h2>About Me</h2>
         <p>I am passionate about learning new things, developing my skills, and staying consistent in my work.
            This portfolio is where I showcase my journey as I grow into a confident web developer.</p>
     </section>
 
 
-    <section class="skills" id="skills">
+    <section class="skills reveal" id="skills">
         <h2>My Skills</h2>
         <div class="skill-box">
             <p><i class="fa-brands fa-html5"></i> HTML</p>
@@ -66,7 +76,7 @@
     </section>
 
 
-    <section class="projects" id="projects">
+    <section class="projects reveal" id="projects">
         <h2>My Projects</h2>
         <div class="project-card">
             <h3>Personal Portfolio Website</h3>
@@ -78,7 +88,7 @@
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact reveal" id="contact">
         <h2>Contact Me</h2>
         <p>I'd love to connect! Whether it's for an internship, collaboration, or just to say hello,
            feel free to reach out.</p>
@@ -96,7 +106,9 @@
 
 
     </section>
-
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
     <footer>
         <p>&copy; 2026 Saba Farheen. All rights reserved.</p>
     </footer>

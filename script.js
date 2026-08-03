@@ -1,4 +1,4 @@
-Console.log("JavaScript is working!");
+console.log("JavaScript is working!");
 /* ============================================
    Saba Farheen — Portfolio JS
    Features: mobile nav, active link highlight,
