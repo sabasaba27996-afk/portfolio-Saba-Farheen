@@ -29,12 +29,14 @@
 
 
 [data-theme="dark"] {
-    --color-bg-tint:#181622;
-    --color-card-bg:#241f33;
-    --color-dark:#f4f2fa;
-    --color-text:#cfcbe0;
-    --color-text-light:#9d97b8;
-    --color-primary-light:#c9aef2;
+    --color-bg-tint:#221b35;
+    --color-card-bg:#2f2548;
+    --color-dark:#ffffff;
+    --color-text:#e8e3f6;
+    --color-text-light:#c5bddf;
+    --color-primary:#9b6dff;
+    --color-primary-dark:#7a4deb;
+    --color-primary-light:#cdb4ff;
 }
 
 * {
@@ -58,7 +60,7 @@ html {
 }
 
 section {
-    padding-top: 80px;
+    scroll-margin-top: 100px;
 }
 
 .navbar {
@@ -108,7 +110,7 @@ section {
     gap: 60px;
     max-width: 1200px;      
     margin: 0 auto;
-    min-height: 90vh;       
+    min-height: 100vh;       
     padding: 140px 40px 80px;
     text-align: left;
 }
@@ -225,7 +227,7 @@ section h2 {
 .about {
     width: 80%;
     max-width: 900px;
-    margin: 40px auto 80px;
+    margin: 0 auto;
     padding: 40px;
     background: var(--color-card-bg);
     border-radius: var(--radius);
@@ -293,7 +295,7 @@ section h2 {
 
 .project-card {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 40px;
     border-radius: var(--radius);
     background: var(--color-card-bg);
@@ -370,7 +372,15 @@ section h2 {
 .contact a:hover {
     color: var(--color-primary-dark);
 }
-
+.about,
+.skills,
+.projects,
+.contact {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 footer {
     background: var(--color-dark);
