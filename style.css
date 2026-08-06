@@ -9,6 +9,9 @@
     --color-text-light:#7a8091;
     --color-bg-tint:#faf8ff;
     --color-card-bg:#ffffff;
+     --color-navbar-bg:#1e1b2e;
+    --color-navbar-text:#ffffff;
+
 
     --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
@@ -27,16 +30,17 @@
     --shadow-card-hover: 0 16px 40px rgba(124, 58, 237, 0.22);
 }
 
-
 [data-theme="dark"] {
-    --color-bg-tint:#221b35;
-    --color-card-bg:#2f2548;
-    --color-dark:#ffffff;
-    --color-text:#e8e3f6;
-    --color-text-light:#c5bddf;
-    --color-primary:#9b6dff;
-    --color-primary-dark:#7a4deb;
-    --color-primary-light:#cdb4ff;
+    --color-bg-tint:#13111c;
+    --color-card-bg:#1e1b2e;
+    --color-dark:#f5f3fa;
+    --color-text:#d8d4e8;
+    --color-text-light:#a9a3c2;
+    --color-primary:#a78bfa;
+    --color-primary-dark:#8b5cf6;
+    --color-primary-light:#c4b5fd;
+    --color-navbar-bg:#0f0d18;
+    --color-navbar-text:#f5f3fa;
 }
 
 * {
@@ -69,12 +73,14 @@ section {
     left: 0;
     width: 100%;
     padding: 18px 50px;
-    background: var(--color-dark);
+    background: var(--color-navbar-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    color: white;
+    color: var(--color-navbar-text);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: var(--transition-theme);
 }
 
 .logo {
@@ -91,17 +97,36 @@ section {
 }
 
 .nav-links a {
+    position: relative;
     text-decoration: none;
-    color: white;
+    color: var(--color-navbar-text);
     font-size: var(--fs-small);
     font-weight: 500;
     transition: 0.3s;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-primary-light);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--color-primary-light);
+    transform: translateY(-2px);
 }
 
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
 
 .hero {
     display: flex;
@@ -124,7 +149,6 @@ section {
     display: flex;
     justify-content: center;
 }
-
 .hero-image img {
     width: 480px;
     max-width: 100%;
@@ -136,8 +160,21 @@ section {
     border-radius: 0;
     background: transparent;
     box-shadow: none;
+    opacity: 0;
 
+    animation: heroFadeIn 1.1s ease 0.2s forwards;
     transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .hero-image img:hover {
@@ -225,14 +262,20 @@ section h2 {
 
 
 .about {
-    width: 80%;
-    max-width: 900px;
+    width: 90%;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 32px 40px;
     background: var(--color-card-bg);
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .about p {
@@ -372,11 +415,18 @@ section h2 {
 .contact a:hover {
     color: var(--color-primary-dark);
 }
-.about,
+
 .skills,
 .projects,
 .contact {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about {
+    padding-top: 110px;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;

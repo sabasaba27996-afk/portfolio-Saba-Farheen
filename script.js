@@ -6,7 +6,7 @@ console.log("JavaScript is working!");
    dark mode toggle
 ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document .addEventListener('DOMContentLoaded', () => {
     /* ---------- 1. MOBILE NAV TOGGLE ---------- */
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
@@ -30,21 +30,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ---------- 2. ACTIVE LINK ON SCROLL ---------- */
-    const sections = document.querySelectorAll('section[id], header[id]');
-    const navAnchors = document.querySelectorAll('.nav-link');
+   /* ---------- 2. ACTIVE LINK ON SCROLL ---------- */
+const sections = document.querySelectorAll('section[id], header[id]');
+const navAnchors = document.querySelectorAll('.nav-link');
+const sectionRatios = new Map();
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navAnchors.forEach(a => a.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-                if (activeLink) activeLink.classList.add('active');
-            }
-        });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        sectionRatios.set(entry.target.id, entry.intersectionRatio);
+    });
 
-    sections.forEach(section => sectionObserver.observe(section));
+    // Pick the single section that's most visible right now
+    let currentId = null;
+    let maxRatio = 0;
+    sectionRatios.forEach((ratio, id) => {
+        if (ratio > maxRatio) {
+            maxRatio = ratio;
+            currentId = id;
+        }
+    });
+
+    if (currentId) {
+        navAnchors.forEach(a => a.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-link[href="#${currentId}"]`);
+        if (activeLink) activeLink.classList.add('active');
+    }
+}, { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] });
+
+sections.forEach(section => sectionObserver.observe(section));
+
 
     /* ---------- 3. SCROLL REVEAL ---------- */
     const revealEls = document.querySelectorAll('.reveal');
