@@ -339,7 +339,7 @@ section h2 {
 .project-card {
     max-width: 800px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 60px;
     border-radius: var(--radius);
     background: var(--color-card-bg);
     box-shadow: var(--shadow-card);
