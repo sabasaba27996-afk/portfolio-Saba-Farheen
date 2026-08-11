@@ -143,13 +143,44 @@ section {
 .hero-text {
     flex: 1 1 55%;
 }
-
 .hero-image {
+    position: relative;
     flex: 1 1 35%;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
-.hero-image img {
+
+/* soft glow blobs behind the illustration so the hero doesn't look flat */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    height: 420px;
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+    opacity: 0.35;
+    filter: blur(10px);
+    z-index: -1;
+    animation: heroGlowPulse 6s ease-in-out infinite;
+}
+
+@keyframes heroGlowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50%      { transform: translate(-50%, -50%) scale(1.08); }
+}
+
+.hero-image-frame {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+}
+
+.hero-image-frame img {
+    display: block;
     width: 480px;
     max-width: 100%;
     height: auto;
@@ -162,25 +193,37 @@ section {
     box-shadow: none;
     opacity: 0;
 
-    animation: heroFadeIn 1.1s ease 0.2s forwards;
+    /* strips the illustration's original colors so the overlay below
+       can recolor it entirely in one shade */
+    filter: grayscale(1) contrast(1.05);
+
+    animation: heroFadeIn 1s ease 0.15s forwards;
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-@keyframes heroFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(24px) scale(0.97);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+/* recolors the (now grayscale) illustration in the site's purple tone
+   via blend mode — this is what makes it read as ONE color with your text */
+.hero-image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-primary);
+    mix-blend-mode: color;
+    opacity: 0.9;
+    pointer-events: none;
+    transition: background 0.3s ease;
 }
 
-.hero-image img:hover {
-    transform: translateY(-10px) scale(1.05);
-    filter: drop-shadow(0 15px 25px rgba(124, 58, 237, 0.35));
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+.hero-image-frame:hover img {
+    transform: translateY(-10px) scale(1.05);
+    filter: grayscale(1) contrast(1.05) drop-shadow(0 15px 25px rgba(124, 58, 237, 0.35));
+}
+
 
 .intro {
     font-size: var(--fs-body-lg);
@@ -262,10 +305,10 @@ section h2 {
 
 
 .about {
-    width: 90%;
-    max-width: 650px;
+    width: 80%;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 32px 40px;
+    padding: 40px;
     background: var(--color-card-bg);
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
@@ -419,7 +462,6 @@ section h2 {
 .skills,
 .projects,
 .contact {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
