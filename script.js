@@ -166,4 +166,11 @@ sections.forEach(section => sectionObserver.observe(section));
             : '<i class="fa-solid fa-moon"></i>';
     }
 
+}
+);
+window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+
+    preloader.classList.add("loaded");
+    document.body.classList.remove("is-loading");
 });
