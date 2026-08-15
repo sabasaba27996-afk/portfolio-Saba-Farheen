@@ -416,21 +416,7 @@ section h2 {
     background: var(--color-primary-dark);
     transform: translateY(-3px);
 }
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 18px;
-}
 
-.project-tags span {
-    background: rgba(197, 176, 235, 0.14);
-    color: var(--color-primary-dark);
-    font-size: var(--fs-small);
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 20px;
-}
 
 
 .contact {
