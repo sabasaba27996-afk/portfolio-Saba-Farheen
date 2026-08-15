@@ -76,7 +76,7 @@ sections.forEach(section => sectionObserver.observe(section));
 
     // Also fade in individual skill/project cards with a slight stagger
     const staggerGroups = [
-        document.querySelectorAll('.skill-box p'),
+        document.querySelectorAll('.skill-card p'),
         document.querySelectorAll('.project-card')
     ];
 
