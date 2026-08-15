@@ -432,11 +432,12 @@ section h2 {
 }
 
 footer {
-    background: var(--color-dark);
-    color: white;
+    background: var(--color-navbar-bg);
+    color: var(--color-navbar-text);
     text-align: center;
     padding: 25px;
     margin-top: 30px;
+    transition: var(--transition-theme);
 }
 
 footer p {
