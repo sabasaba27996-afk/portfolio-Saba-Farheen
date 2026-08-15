@@ -424,7 +424,7 @@ section h2 {
 }
 
 .project-tags span {
-    background: rgba(111, 66, 193, 0.14);
+    background: rgba(197, 176, 235, 0.14);
     color: var(--color-primary-dark);
     font-size: var(--fs-small);
     font-weight: 600;
