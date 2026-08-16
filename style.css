@@ -348,7 +348,7 @@ section h2 {
 }
 
 .skill-card i {
-    font-size: 26px;
+    font-size: 17px;
     color: var(--color-primary);
     margin-bottom: 0;
     flex-shrink: 0;
@@ -356,14 +356,15 @@ section h2 {
 }
 
 .skill-card h3 {
-    font-size: var(--fs-h3);
+    font-size: 0.85rem;
     color: var(--color-dark);
-    margin-bottom: 8px;
+    margin-bottom: 2px;
+    overflow-wrap: break-word;
     transition: color 0.3s ease;
 }
 
 .skill-card p {
-    font-size: var(--fs-small);
+    font-size: 0.75rem;
     color: var(--color-text-light);
     line-height: 1.5;
     margin: 0;
