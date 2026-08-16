@@ -425,6 +425,70 @@ section h2 {
     background: var(--color-primary-dark);
     transform: translateY(-3px);
 }
+.project-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: var(--color-bg-tint);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-demo,
+.btn-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-demo {
+    background: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.btn-demo:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-github {
+    background: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-text-light);
+}
+
+.btn-github:hover {
+    background: var(--color-dark);
+    color: var(--color-card-bg);
+    border-color: var(--color-dark);
+    transform: translateY(-2px);
+}
 .testimonial {
     text-align: center;
     padding: 55px 10% 15px;
