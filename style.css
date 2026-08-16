@@ -319,7 +319,9 @@ section h2 {
     max-width: 760px;
     margin: 18px auto 0;
 }
-
+.skill-text{
+    min-width: 0;
+}
 .skill-card {
     background: var(--color-card-bg);
     border-radius: var(--radius);
@@ -329,6 +331,7 @@ section h2 {
     align-items: center;
     gap: 8px;
     text-align: left;
+    min-width: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
