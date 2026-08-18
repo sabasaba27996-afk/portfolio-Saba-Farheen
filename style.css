@@ -43,8 +43,14 @@
     --color-navbar-text:#f5f3fa;
 }
 
+
 * {
     box-sizing: border-box;
+}
+img{
+
+    max-width: 100%;
+    height: auto;
 }
 
 body {
@@ -642,6 +648,13 @@ footer p {
     .project-card {
         padding: 25px;
     }
+.cert-grid,
+.project-grid{
+    grid-template-columns: 1fr;
+}
+.about-stats {
+    gap: 24px;
+}
 }
 
 @media (max-width: 480px) {
@@ -664,6 +677,13 @@ footer p {
         width: 100%;
         text-align: center;
     }
+.skill-grid{
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+.project-card,
+.cert-card {
+    padding: 20px;
+}
 }
 
 /* ================================
@@ -1024,4 +1044,4 @@ body.is-loading {
         width: 42px;
         height: 42px;
     }
-}
+                        }
