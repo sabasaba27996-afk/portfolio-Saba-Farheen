@@ -30,12 +30,12 @@
     --radius: 14px;
     --shadow-card: 0 10px 30px rgba(124, 58, 237, 0.12);
     --shadow-card-hover: 0 16px 40px rgba(124, 58, 237, 0.22);
-
+}
     html, body {
   overflow-x: hidden;
   max-width: 100%;
 }
-}
+
 
 [data-theme="dark"] {
     --color-bg-tint:#13111c;
@@ -161,6 +161,7 @@ section {
 }
 .hero-image {
     flex: 1 1 35%;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
