@@ -1023,6 +1023,10 @@ body.is-loading {
     * {
         max-width: 100%;
     }
+    .cert-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
     .menu-toggle {
         display: flex;
     }
