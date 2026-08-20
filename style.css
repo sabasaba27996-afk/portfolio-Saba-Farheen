@@ -197,7 +197,12 @@ section {
     transform: translateY(-10px) scale(1.05);
     filter: drop-shadow(0 15px 25px rgba(124, 58, 237, 0.35));
 }
-
+@media (hover: hover) and (pointer: fine) {
+    .hero-image img:hover {
+        transform: translateY(-10px) scale(1.05);
+        filter: drop-shadow(0 15px 25px rgba(124, 58, 237, 0.35));
+    }
+}
 
 .intro {
     font-size: var(--fs-body-lg);
@@ -1031,13 +1036,19 @@ body.is-loading {
         display: flex;
     }
 
+    .cert-grid,
+    .project-grid,
+    .grades-grid {
+        grid-template-columns: 1fr;
+    }
+
     .nav-links {
         position: fixed;
         top: 64px;
         left: 0;
         right: 0;
         flex-direction: column;
-        background: var(--color-dark);
+        background: var(--color-navbar-bg);
         padding: 20px 0;
         gap: 0;
         max-height: 0;
