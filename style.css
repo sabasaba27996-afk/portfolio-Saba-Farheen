@@ -979,7 +979,7 @@ footer p {
 .preloader-logo {
     font-size: 30px;
     font-weight: 700;
-    color: var(--color-primary-dark);
+    color: var(--color-primary);
     letter-spacing: 0.5px;
 }
 
